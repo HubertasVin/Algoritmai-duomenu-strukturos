@@ -2,11 +2,11 @@
 
 ## Demonstration
 Sudoku.
-Programa, kuri sprendžia pateiktą sudoku:
+A program that solves a given sudoku:
 
 ![Sudoku](demonstration/Sudoku.png)
 
-VIP bankas.
-Programa vykdo banko simuliaciją su VIP klientais, kur pirmoji simuliacija vykdoma, kai VIP klientai turi atskirą kasininką, o antroje simuliacijoje visi kasininkai yra bendri (nera atskiro VIP kasininko), bet VIP klientai priimami be eilės:
+VIP bank.
+The program runs a bank simulation with VIP customers, where the first simulation is performed when VIP customers have a separate cashier, and in the second simulation all cashiers are shared (there is no separate VIP cashier), but VIP customers are accepted without a queue:
 
 ![VIP bankas](demonstration/VIP_bankas.png)
