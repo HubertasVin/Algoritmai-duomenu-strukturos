@@ -1,0 +1,1142 @@
+3 uzduotis, 5 variantas. 3 grupe, 2 pogrupis. Hubertas Vindzigalskis.
+Salyga: 8. VIP bankas.
+Proceso 1 protokolas.
+DALIS 1. Duomenys.
+  1.1. Salyga: VIP bankas.
+  1.2. Pradiniai duomenys:
+    1) Kasininku skaicius:                                    5.
+    2) Naujo VIP kliento tikimybe:                           60 %.
+    3) Naujo paprasto kliento tikimybe:                      40 %.
+    4) Kasininko darbo atlikimo greitis su vienu klientu:     6 min.
+    5) Banko darbo trukme laiko segmentais: T=              100 min.
+  1.3. Algoritmas:
+    1) Funkcijoje beginWork() paleidziamas ciklas, kuris sukasi iki 100 min.
+    2) Cikle kiekviena karta sukuriamas skirtingas skaicius nauju VIP ir paprastu
+       klientu.
+    3) Cikle atnaujinamos kasininku busenos.
+    4) Cikle naujiems kasininkams priskiriami nauji klientai, jei jie laisvi.
+    5) Kai kasininkas praleistas laikas su klientu pasiekia 6 reiksme,
+       klientas iseina is banko ir kasininkas pradeda darba su nauju klientu.
+DALIS 2. Vykdymas.
+  T=0 min.
+    Atejo paprastas klientas KL1.
+    Kasininkas KA1 laisvas.
+    Kasininkas KA2 laisvas.
+    Kasininkas KA3 laisvas.
+    Kasininkas KA4 laisvas.
+    Kasininkas KA5 laisvas.
+
+  T=1 min.
+    Kasininkas KA1 aptarnauja paprasta klienta KL1. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA2 laisvas.
+    Kasininkas KA3 laisvas.
+    Kasininkas KA4 laisvas.
+    Kasininkas KA5 laisvas.
+
+  T=2 min.
+    Atejo VIP klientas VIP2.
+    Kasininkas KA1 aptarnauja paprasta klienta KL1. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA2 laisvas.
+    Kasininkas KA3 laisvas.
+    Kasininkas KA4 laisvas.
+    Kasininkas KA5 laisvas.
+
+  T=3 min.
+    Atejo paprastas klientas KL3.
+    Kasininkas KA1 aptarnauja paprasta klienta KL1. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP2. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA3 laisvas.
+    Kasininkas KA4 laisvas.
+    Kasininkas KA5 laisvas.
+
+  T=4 min.
+    Kasininkas KA1 aptarnauja paprasta klienta KL1. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP2. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL3. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA4 laisvas.
+    Kasininkas KA5 laisvas.
+
+  T=5 min.
+    Kasininkas KA1 aptarnauja paprasta klienta KL1. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP2. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL3. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA4 laisvas.
+    Kasininkas KA5 laisvas.
+
+  T=6 min.
+    Atejo VIP klientas VIP4.
+    Kasininkas KA1 aptarnauja paprasta klienta KL1. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP2. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL3. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA4 laisvas.
+    Kasininkas KA5 laisvas.
+
+  T=7 min.
+    Atejo VIP klientas VIP5.
+    Kasininkas KA1 aptarnauja paprasta klienta KL1. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP2. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL3. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP4. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA5 laisvas.
+
+  T=8 min.
+    Atejo paprastas klientas KL6.
+    Kasininkas KA1 aptarnauja VIP klienta VIP5. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP2. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL3. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP4. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA5 laisvas.
+
+  T=9 min.
+    Kasininkas KA1 aptarnauja VIP klienta VIP5. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP2. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL3. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP4. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL6. Aptarnavimas jau trunka 0 min. is 6 min.
+
+  T=10 min.
+    Kasininkas KA1 aptarnauja VIP klienta VIP5. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA2 yra baiges aptarnauti VIP klienta VIP2.
+    Kasininkas KA3 aptarnauja paprasta klienta KL3. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP4. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL6. Aptarnavimas jau trunka 1 min. is 6 min.
+
+  T=11 min.
+    Atejo VIP klientas VIP7.
+    Kasininkas KA1 aptarnauja VIP klienta VIP5. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA2 yra baiges aptarnauti VIP klienta VIP2.
+    Kasininkas KA3 yra baiges aptarnauti paprasta klienta KL3.
+    Kasininkas KA4 aptarnauja VIP klienta VIP4. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL6. Aptarnavimas jau trunka 2 min. is 6 min.
+
+  T=12 min.
+    Atejo VIP klientas VIP8.
+    Kasininkas KA1 aptarnauja VIP klienta VIP5. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP7. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA3 yra baiges aptarnauti paprasta klienta KL3.
+    Kasininkas KA4 aptarnauja VIP klienta VIP4. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL6. Aptarnavimas jau trunka 3 min. is 6 min.
+
+  T=13 min.
+    Atejo VIP klientas VIP9.
+    Atejo paprastas klientas KL10.
+    Kasininkas KA1 aptarnauja VIP klienta VIP5. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP7. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP8. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP4. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL6. Aptarnavimas jau trunka 4 min. is 6 min.
+
+  T=14 min.
+    Eileje stovi paprastas klientas KL10.
+    Kasininkas KA1 aptarnauja VIP klienta VIP5. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP7. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP8. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP9. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL6. Aptarnavimas jau trunka 5 min. is 6 min.
+
+  T=15 min.
+    Kasininkas KA1 aptarnauja paprasta klienta KL10. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP7. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP8. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP9. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL6. Aptarnavimas jau trunka 6 min. is 6 min.
+
+  T=16 min.
+    Atejo VIP klientas VIP11.
+    Kasininkas KA1 aptarnauja paprasta klienta KL10. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP7. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP8. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP9. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA5 yra baiges aptarnauti paprasta klienta KL6.
+
+  T=17 min.
+    Atejo paprastas klientas KL12.
+    Kasininkas KA1 aptarnauja paprasta klienta KL10. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP7. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP8. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP9. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP11. Aptarnavimas jau trunka 0 min. is 6 min.
+
+  T=18 min.
+    Eileje stovi paprastas klientas KL12.
+    Kasininkas KA1 aptarnauja paprasta klienta KL10. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP7. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP8. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP9. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP11. Aptarnavimas jau trunka 1 min. is 6 min.
+
+  T=19 min.
+    Atejo VIP klientas VIP13.
+    Atejo paprastas klientas KL14.
+    Kasininkas KA1 aptarnauja paprasta klienta KL10. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL12. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP8. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP9. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP11. Aptarnavimas jau trunka 2 min. is 6 min.
+
+  T=20 min.
+    Atejo VIP klientas VIP15.
+    Eileje stovi paprastas klientas KL14.
+    Kasininkas KA1 aptarnauja paprasta klienta KL10. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL12. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP13. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP9. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP11. Aptarnavimas jau trunka 3 min. is 6 min.
+
+  T=21 min.
+    Eileje stovi paprastas klientas KL14.
+    Kasininkas KA1 aptarnauja paprasta klienta KL10. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL12. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP13. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP15. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP11. Aptarnavimas jau trunka 4 min. is 6 min.
+
+  T=22 min.
+    Atejo paprastas klientas KL16.
+    Kasininkas KA1 aptarnauja paprasta klienta KL14. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL12. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP13. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP15. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP11. Aptarnavimas jau trunka 5 min. is 6 min.
+
+  T=23 min.
+    Atejo VIP klientas VIP17.
+    Eileje stovi paprastas klientas KL16.
+    Kasininkas KA1 aptarnauja paprasta klienta KL14. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL12. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP13. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP15. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP11. Aptarnavimas jau trunka 6 min. is 6 min.
+
+  T=24 min.
+    Atejo VIP klientas VIP18.
+    Atejo paprastas klientas KL19.
+    Eileje stovi paprastas klientas KL16.
+    Kasininkas KA1 aptarnauja paprasta klienta KL14. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL12. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP13. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP15. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP17. Aptarnavimas jau trunka 0 min. is 6 min.
+
+  T=25 min.
+    Atejo VIP klientas VIP20.
+    Eileje stovi VIP klientas VIP18.
+    Eileje stovi paprasti klientai: KL16 KL19.
+    Kasininkas KA1 aptarnauja paprasta klienta KL14. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL12. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP13. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP15. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP17. Aptarnavimas jau trunka 1 min. is 6 min.
+
+  T=26 min.
+    Atejo VIP klientas VIP21.
+    Eileje stovi VIP klientas VIP20.
+    Eileje stovi paprasti klientai: KL16 KL19.
+    Kasininkas KA1 aptarnauja paprasta klienta KL14. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP18. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP13. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP15. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP17. Aptarnavimas jau trunka 2 min. is 6 min.
+
+  T=27 min.
+    Atejo VIP klientas VIP22.
+    Eileje stovi VIP klientas VIP21.
+    Eileje stovi paprasti klientai: KL16 KL19.
+    Kasininkas KA1 aptarnauja paprasta klienta KL14. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP18. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP20. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP15. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP17. Aptarnavimas jau trunka 3 min. is 6 min.
+
+  T=28 min.
+    Atejo VIP klientas VIP23.
+    Eileje stovi VIP klientas VIP22.
+    Eileje stovi paprasti klientai: KL16 KL19.
+    Kasininkas KA1 aptarnauja paprasta klienta KL14. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP18. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP20. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP21. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP17. Aptarnavimas jau trunka 4 min. is 6 min.
+
+  T=29 min.
+    Eileje stovi VIP klientas VIP23.
+    Eileje stovi paprasti klientai: KL16 KL19.
+    Kasininkas KA1 aptarnauja VIP klienta VIP22. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP18. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP20. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP21. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP17. Aptarnavimas jau trunka 5 min. is 6 min.
+
+  T=30 min.
+    Eileje stovi VIP klientas VIP23.
+    Eileje stovi paprasti klientai: KL16 KL19.
+    Kasininkas KA1 aptarnauja VIP klienta VIP22. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP18. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP20. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP21. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP17. Aptarnavimas jau trunka 6 min. is 6 min.
+
+  T=31 min.
+    Atejo VIP klientas VIP24.
+    Eileje stovi paprasti klientai: KL16 KL19.
+    Kasininkas KA1 aptarnauja VIP klienta VIP22. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP18. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP20. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP21. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP23. Aptarnavimas jau trunka 0 min. is 6 min.
+
+  T=32 min.
+    Atejo paprastas klientas KL25.
+    Eileje stovi VIP klientas VIP24.
+    Eileje stovi paprasti klientai: KL16 KL19.
+    Kasininkas KA1 aptarnauja VIP klienta VIP22. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP18. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP20. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP21. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP23. Aptarnavimas jau trunka 1 min. is 6 min.
+
+  T=33 min.
+    Atejo VIP klientas VIP26.
+    Eileje stovi paprasti klientai: KL16 KL19 KL25.
+    Kasininkas KA1 aptarnauja VIP klienta VIP22. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP24. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP20. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP21. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP23. Aptarnavimas jau trunka 2 min. is 6 min.
+
+  T=34 min.
+    Atejo paprastas klientas KL27.
+    Eileje stovi paprasti klientai: KL16 KL19 KL25.
+    Kasininkas KA1 aptarnauja VIP klienta VIP22. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP24. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP26. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP21. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP23. Aptarnavimas jau trunka 3 min. is 6 min.
+
+  T=35 min.
+    Eileje stovi paprasti klientai: KL19 KL25 KL27.
+    Kasininkas KA1 aptarnauja VIP klienta VIP22. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP24. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP26. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL16. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP23. Aptarnavimas jau trunka 4 min. is 6 min.
+
+  T=36 min.
+    Eileje stovi paprasti klientai: KL25 KL27.
+    Kasininkas KA1 aptarnauja paprasta klienta KL19. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP24. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP26. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL16. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP23. Aptarnavimas jau trunka 5 min. is 6 min.
+
+  T=37 min.
+    Atejo VIP klientas VIP28.
+    Atejo paprastas klientas KL29.
+    Eileje stovi paprasti klientai: KL25 KL27.
+    Kasininkas KA1 aptarnauja paprasta klienta KL19. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP24. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP26. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL16. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP23. Aptarnavimas jau trunka 6 min. is 6 min.
+
+  T=38 min.
+    Eileje stovi paprasti klientai: KL25 KL27 KL29.
+    Kasininkas KA1 aptarnauja paprasta klienta KL19. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP24. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP26. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL16. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP28. Aptarnavimas jau trunka 0 min. is 6 min.
+
+  T=39 min.
+    Atejo VIP klientas VIP30.
+    Atejo paprastas klientas KL31.
+    Eileje stovi paprasti klientai: KL25 KL27 KL29.
+    Kasininkas KA1 aptarnauja paprasta klienta KL19. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP24. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP26. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL16. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP28. Aptarnavimas jau trunka 1 min. is 6 min.
+
+  T=40 min.
+    Eileje stovi paprasti klientai: KL25 KL27 KL29 KL31.
+    Kasininkas KA1 aptarnauja paprasta klienta KL19. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP30. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP26. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL16. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP28. Aptarnavimas jau trunka 2 min. is 6 min.
+
+  T=41 min.
+    Eileje stovi paprasti klientai: KL27 KL29 KL31.
+    Kasininkas KA1 aptarnauja paprasta klienta KL19. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP30. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL25. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL16. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP28. Aptarnavimas jau trunka 3 min. is 6 min.
+
+  T=42 min.
+    Atejo paprastas klientas KL32.
+    Eileje stovi paprasti klientai: KL29 KL31.
+    Kasininkas KA1 aptarnauja paprasta klienta KL19. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP30. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL25. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL27. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP28. Aptarnavimas jau trunka 4 min. is 6 min.
+
+  T=43 min.
+    Eileje stovi paprasti klientai: KL31 KL32.
+    Kasininkas KA1 aptarnauja paprasta klienta KL29. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP30. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL25. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL27. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP28. Aptarnavimas jau trunka 5 min. is 6 min.
+
+  T=44 min.
+    Atejo VIP klientas VIP33.
+    Eileje stovi paprasti klientai: KL31 KL32.
+    Kasininkas KA1 aptarnauja paprasta klienta KL29. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP30. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL25. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL27. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP28. Aptarnavimas jau trunka 6 min. is 6 min.
+
+  T=45 min.
+    Atejo VIP klientas VIP34.
+    Eileje stovi paprasti klientai: KL31 KL32.
+    Kasininkas KA1 aptarnauja paprasta klienta KL29. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP30. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL25. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL27. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP33. Aptarnavimas jau trunka 0 min. is 6 min.
+
+  T=46 min.
+    Atejo VIP klientas VIP35.
+    Eileje stovi VIP klientas VIP34.
+    Eileje stovi paprasti klientai: KL31 KL32.
+    Kasininkas KA1 aptarnauja paprasta klienta KL29. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP30. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL25. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL27. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP33. Aptarnavimas jau trunka 1 min. is 6 min.
+
+  T=47 min.
+    Atejo VIP klientas VIP36.
+    Eileje stovi VIP klientas VIP35.
+    Eileje stovi paprasti klientai: KL31 KL32.
+    Kasininkas KA1 aptarnauja paprasta klienta KL29. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP34. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL25. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL27. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP33. Aptarnavimas jau trunka 2 min. is 6 min.
+
+  T=48 min.
+    Atejo VIP klientas VIP37.
+    Eileje stovi VIP klientas VIP36.
+    Eileje stovi paprasti klientai: KL31 KL32.
+    Kasininkas KA1 aptarnauja paprasta klienta KL29. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP34. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP35. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL27. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP33. Aptarnavimas jau trunka 3 min. is 6 min.
+
+  T=49 min.
+    Atejo VIP klientas VIP38.
+    Eileje stovi VIP klientas VIP37.
+    Eileje stovi paprasti klientai: KL31 KL32.
+    Kasininkas KA1 aptarnauja paprasta klienta KL29. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP34. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP35. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP36. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP33. Aptarnavimas jau trunka 4 min. is 6 min.
+
+  T=50 min.
+    Atejo paprastas klientas KL39.
+    Eileje stovi VIP klientas VIP38.
+    Eileje stovi paprasti klientai: KL31 KL32.
+    Kasininkas KA1 aptarnauja VIP klienta VIP37. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP34. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP35. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP36. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP33. Aptarnavimas jau trunka 5 min. is 6 min.
+
+  T=51 min.
+    Eileje stovi VIP klientas VIP38.
+    Eileje stovi paprasti klientai: KL31 KL32 KL39.
+    Kasininkas KA1 aptarnauja VIP klienta VIP37. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP34. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP35. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP36. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP33. Aptarnavimas jau trunka 6 min. is 6 min.
+
+  T=52 min.
+    Atejo VIP klientas VIP40.
+    Atejo paprastas klientas KL41.
+    Eileje stovi paprasti klientai: KL31 KL32 KL39.
+    Kasininkas KA1 aptarnauja VIP klienta VIP37. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP34. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP35. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP36. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP38. Aptarnavimas jau trunka 0 min. is 6 min.
+
+  T=53 min.
+    Eileje stovi VIP klientas VIP40.
+    Eileje stovi paprasti klientai: KL31 KL32 KL39 KL41.
+    Kasininkas KA1 aptarnauja VIP klienta VIP37. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP34. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP35. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP36. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP38. Aptarnavimas jau trunka 1 min. is 6 min.
+
+  T=54 min.
+    Atejo paprastas klientas KL42.
+    Eileje stovi paprasti klientai: KL31 KL32 KL39 KL41.
+    Kasininkas KA1 aptarnauja VIP klienta VIP37. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP40. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP35. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP36. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP38. Aptarnavimas jau trunka 2 min. is 6 min.
+
+  T=55 min.
+    Atejo paprastas klientas KL43.
+    Eileje stovi paprasti klientai: KL32 KL39 KL41 KL42.
+    Kasininkas KA1 aptarnauja VIP klienta VIP37. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP40. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL31. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP36. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP38. Aptarnavimas jau trunka 3 min. is 6 min.
+
+  T=56 min.
+    Atejo VIP klientas VIP44.
+    Eileje stovi paprasti klientai: KL39 KL41 KL42 KL43.
+    Kasininkas KA1 aptarnauja VIP klienta VIP37. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP40. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL31. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL32. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP38. Aptarnavimas jau trunka 4 min. is 6 min.
+
+  T=57 min.
+    Eileje stovi paprasti klientai: KL39 KL41 KL42 KL43.
+    Kasininkas KA1 aptarnauja VIP klienta VIP44. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP40. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL31. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL32. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP38. Aptarnavimas jau trunka 5 min. is 6 min.
+
+  T=58 min.
+    Eileje stovi paprasti klientai: KL39 KL41 KL42 KL43.
+    Kasininkas KA1 aptarnauja VIP klienta VIP44. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP40. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL31. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL32. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP38. Aptarnavimas jau trunka 6 min. is 6 min.
+
+  T=59 min.
+    Atejo paprastas klientas KL45.
+    Eileje stovi paprasti klientai: KL41 KL42 KL43.
+    Kasininkas KA1 aptarnauja VIP klienta VIP44. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP40. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL31. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL32. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL39. Aptarnavimas jau trunka 0 min. is 6 min.
+
+  T=60 min.
+    Eileje stovi paprasti klientai: KL41 KL42 KL43 KL45.
+    Kasininkas KA1 aptarnauja VIP klienta VIP44. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP40. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL31. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL32. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL39. Aptarnavimas jau trunka 1 min. is 6 min.
+
+  T=61 min.
+    Atejo VIP klientas VIP46.
+    Eileje stovi paprasti klientai: KL42 KL43 KL45.
+    Kasininkas KA1 aptarnauja VIP klienta VIP44. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL41. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL31. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL32. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL39. Aptarnavimas jau trunka 2 min. is 6 min.
+
+  T=62 min.
+    Atejo VIP klientas VIP47.
+    Eileje stovi paprasti klientai: KL42 KL43 KL45.
+    Kasininkas KA1 aptarnauja VIP klienta VIP44. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL41. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP46. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL32. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL39. Aptarnavimas jau trunka 3 min. is 6 min.
+
+  T=63 min.
+    Atejo VIP klientas VIP48.
+    Atejo paprastas klientas KL49.
+    Eileje stovi paprasti klientai: KL42 KL43 KL45.
+    Kasininkas KA1 aptarnauja VIP klienta VIP44. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL41. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP46. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP47. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL39. Aptarnavimas jau trunka 4 min. is 6 min.
+
+  T=64 min.
+    Atejo paprastas klientas KL50.
+    Eileje stovi paprasti klientai: KL42 KL43 KL45 KL49.
+    Kasininkas KA1 aptarnauja VIP klienta VIP48. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL41. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP46. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP47. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL39. Aptarnavimas jau trunka 5 min. is 6 min.
+
+  T=65 min.
+    Atejo paprastas klientas KL51.
+    Eileje stovi paprasti klientai: KL42 KL43 KL45 KL49 KL50.
+    Kasininkas KA1 aptarnauja VIP klienta VIP48. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL41. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP46. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP47. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL39. Aptarnavimas jau trunka 6 min. is 6 min.
+
+  T=66 min.
+    Atejo paprastas klientas KL52.
+    Eileje stovi paprasti klientai: KL43 KL45 KL49 KL50 KL51.
+    Kasininkas KA1 aptarnauja VIP klienta VIP48. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL41. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP46. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP47. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL42. Aptarnavimas jau trunka 0 min. is 6 min.
+
+  T=67 min.
+    Atejo VIP klientas VIP53.
+    Eileje stovi paprasti klientai: KL43 KL45 KL49 KL50 KL51 KL52.
+    Kasininkas KA1 aptarnauja VIP klienta VIP48. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL41. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP46. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP47. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL42. Aptarnavimas jau trunka 1 min. is 6 min.
+
+  T=68 min.
+    Atejo VIP klientas VIP54.
+    Atejo paprastas klientas KL55.
+    Eileje stovi paprasti klientai: KL43 KL45 KL49 KL50 KL51 KL52.
+    Kasininkas KA1 aptarnauja VIP klienta VIP48. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP53. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP46. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP47. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL42. Aptarnavimas jau trunka 2 min. is 6 min.
+
+  T=69 min.
+    Eileje stovi paprasti klientai: KL43 KL45 KL49 KL50 KL51 KL52 KL55.
+    Kasininkas KA1 aptarnauja VIP klienta VIP48. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP53. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP54. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP47. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL42. Aptarnavimas jau trunka 3 min. is 6 min.
+
+  T=70 min.
+    Atejo VIP klientas VIP56.
+    Eileje stovi paprasti klientai: KL45 KL49 KL50 KL51 KL52 KL55.
+    Kasininkas KA1 aptarnauja VIP klienta VIP48. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP53. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP54. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL43. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL42. Aptarnavimas jau trunka 4 min. is 6 min.
+
+  T=71 min.
+    Atejo VIP klientas VIP57.
+    Atejo paprastas klientas KL58.
+    Eileje stovi paprasti klientai: KL45 KL49 KL50 KL51 KL52 KL55.
+    Kasininkas KA1 aptarnauja VIP klienta VIP56. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP53. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP54. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL43. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL42. Aptarnavimas jau trunka 5 min. is 6 min.
+
+  T=72 min.
+    Atejo paprastas klientas KL59.
+    Eileje stovi VIP klientas VIP57.
+    Eileje stovi paprasti klientai: KL45 KL49 KL50 KL51 KL52 KL55 KL58.
+    Kasininkas KA1 aptarnauja VIP klienta VIP56. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP53. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP54. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL43. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL42. Aptarnavimas jau trunka 6 min. is 6 min.
+
+  T=73 min.
+    Eileje stovi paprasti klientai: KL45 KL49 KL50 KL51 KL52 KL55 KL58 KL59.
+    Kasininkas KA1 aptarnauja VIP klienta VIP56. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP53. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP54. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL43. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP57. Aptarnavimas jau trunka 0 min. is 6 min.
+
+  T=74 min.
+    Atejo paprastas klientas KL60.
+    Eileje stovi paprasti klientai: KL45 KL49 KL50 KL51 KL52 KL55 KL58 KL59.
+    Kasininkas KA1 aptarnauja VIP klienta VIP56. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP53. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP54. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL43. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP57. Aptarnavimas jau trunka 1 min. is 6 min.
+
+  T=75 min.
+    Eileje stovi paprasti klientai: KL49 KL50 KL51 KL52 KL55 KL58 KL59 KL60.
+    Kasininkas KA1 aptarnauja VIP klienta VIP56. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL45. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP54. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL43. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP57. Aptarnavimas jau trunka 2 min. is 6 min.
+
+  T=76 min.
+    Atejo VIP klientas VIP61.
+    Eileje stovi paprasti klientai: KL50 KL51 KL52 KL55 KL58 KL59 KL60.
+    Kasininkas KA1 aptarnauja VIP klienta VIP56. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL45. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL49. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL43. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP57. Aptarnavimas jau trunka 3 min. is 6 min.
+
+  T=77 min.
+    Atejo VIP klientas VIP62.
+    Eileje stovi paprasti klientai: KL50 KL51 KL52 KL55 KL58 KL59 KL60.
+    Kasininkas KA1 aptarnauja VIP klienta VIP56. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL45. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL49. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP61. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP57. Aptarnavimas jau trunka 4 min. is 6 min.
+
+  T=78 min.
+    Atejo VIP klientas VIP63.
+    Atejo paprastas klientas KL64.
+    Eileje stovi paprasti klientai: KL50 KL51 KL52 KL55 KL58 KL59 KL60.
+    Kasininkas KA1 aptarnauja VIP klienta VIP62. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL45. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL49. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP61. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP57. Aptarnavimas jau trunka 5 min. is 6 min.
+
+  T=79 min.
+    Eileje stovi VIP klientas VIP63.
+    Eileje stovi paprasti klientai: KL50 KL51 KL52 KL55 KL58 KL59 KL60 KL64.
+    Kasininkas KA1 aptarnauja VIP klienta VIP62. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL45. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL49. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP61. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP57. Aptarnavimas jau trunka 6 min. is 6 min.
+
+  T=80 min.
+    Atejo VIP klientas VIP65.
+    Eileje stovi paprasti klientai: KL50 KL51 KL52 KL55 KL58 KL59 KL60 KL64.
+    Kasininkas KA1 aptarnauja VIP klienta VIP62. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL45. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL49. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP61. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP63. Aptarnavimas jau trunka 0 min. is 6 min.
+
+  T=81 min.
+    Atejo VIP klientas VIP66.
+    Eileje stovi VIP klientas VIP65.
+    Eileje stovi paprasti klientai: KL50 KL51 KL52 KL55 KL58 KL59 KL60 KL64.
+    Kasininkas KA1 aptarnauja VIP klienta VIP62. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL45. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL49. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP61. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP63. Aptarnavimas jau trunka 1 min. is 6 min.
+
+  T=82 min.
+    Atejo VIP klientas VIP67.
+    Eileje stovi VIP klientas VIP66.
+    Eileje stovi paprasti klientai: KL50 KL51 KL52 KL55 KL58 KL59 KL60 KL64.
+    Kasininkas KA1 aptarnauja VIP klienta VIP62. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP65. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL49. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP61. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP63. Aptarnavimas jau trunka 2 min. is 6 min.
+
+  T=83 min.
+    Atejo paprastas klientas KL68.
+    Eileje stovi VIP klientas VIP67.
+    Eileje stovi paprasti klientai: KL50 KL51 KL52 KL55 KL58 KL59 KL60 KL64.
+    Kasininkas KA1 aptarnauja VIP klienta VIP62. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP65. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP66. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP61. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP63. Aptarnavimas jau trunka 3 min. is 6 min.
+
+  T=84 min.
+    Atejo paprastas klientas KL69.
+    Eileje stovi paprasti klientai: KL50 KL51 KL52 KL55 KL58 KL59 KL60 KL64
+    KL68.
+    Kasininkas KA1 aptarnauja VIP klienta VIP62. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP65. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP66. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP67. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP63. Aptarnavimas jau trunka 4 min. is 6 min.
+
+  T=85 min.
+    Atejo VIP klientas VIP70.
+    Eileje stovi paprasti klientai: KL51 KL52 KL55 KL58 KL59 KL60 KL64 KL68
+    KL69.
+    Kasininkas KA1 aptarnauja paprasta klienta KL50. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP65. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP66. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP67. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP63. Aptarnavimas jau trunka 5 min. is 6 min.
+
+  T=86 min.
+    Atejo paprastas klientas KL71.
+    Eileje stovi VIP klientas VIP70.
+    Eileje stovi paprasti klientai: KL51 KL52 KL55 KL58 KL59 KL60 KL64 KL68
+    KL69.
+    Kasininkas KA1 aptarnauja paprasta klienta KL50. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP65. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP66. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP67. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP63. Aptarnavimas jau trunka 6 min. is 6 min.
+
+  T=87 min.
+    Atejo VIP klientas VIP72.
+    Atejo paprastas klientas KL73.
+    Eileje stovi paprasti klientai: KL51 KL52 KL55 KL58 KL59 KL60 KL64 KL68
+    KL69 KL71.
+    Kasininkas KA1 aptarnauja paprasta klienta KL50. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP65. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP66. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP67. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP70. Aptarnavimas jau trunka 0 min. is 6 min.
+
+  T=88 min.
+    Atejo VIP klientas VIP74.
+    Atejo paprastas klientas KL75.
+    Eileje stovi VIP klientas VIP72.
+    Eileje stovi paprasti klientai: KL51 KL52 KL55 KL58 KL59 KL60 KL64 KL68
+    KL69 KL71 KL73.
+    Kasininkas KA1 aptarnauja paprasta klienta KL50. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP65. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP66. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP67. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP70. Aptarnavimas jau trunka 1 min. is 6 min.
+
+  T=89 min.
+    Atejo VIP klientas VIP76.
+    Eileje stovi VIP klientas VIP74.
+    Eileje stovi paprasti klientai: KL51 KL52 KL55 KL58 KL59 KL60 KL64 KL68
+    KL69 KL71 KL73 KL75.
+    Kasininkas KA1 aptarnauja paprasta klienta KL50. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP72. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP66. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP67. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP70. Aptarnavimas jau trunka 2 min. is 6 min.
+
+  T=90 min.
+    Atejo VIP klientas VIP77.
+    Eileje stovi VIP klientas VIP76.
+    Eileje stovi paprasti klientai: KL51 KL52 KL55 KL58 KL59 KL60 KL64 KL68
+    KL69 KL71 KL73 KL75.
+    Kasininkas KA1 aptarnauja paprasta klienta KL50. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP72. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP74. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP67. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP70. Aptarnavimas jau trunka 3 min. is 6 min.
+
+  T=91 min.
+    Atejo paprastas klientas KL78.
+    Eileje stovi VIP klientas VIP77.
+    Eileje stovi paprasti klientai: KL51 KL52 KL55 KL58 KL59 KL60 KL64 KL68
+    KL69 KL71 KL73 KL75.
+    Kasininkas KA1 aptarnauja paprasta klienta KL50. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP72. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP74. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP76. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP70. Aptarnavimas jau trunka 4 min. is 6 min.
+
+  T=92 min.
+    Atejo paprastas klientas KL79.
+    Eileje stovi paprasti klientai: KL51 KL52 KL55 KL58 KL59 KL60 KL64 KL68
+    KL69 KL71 KL73 KL75 KL78.
+    Kasininkas KA1 aptarnauja VIP klienta VIP77. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP72. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP74. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP76. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP70. Aptarnavimas jau trunka 5 min. is 6 min.
+
+  T=93 min.
+    Eileje stovi paprasti klientai: KL51 KL52 KL55 KL58 KL59 KL60 KL64 KL68
+    KL69 KL71 KL73 KL75 KL78 KL79.
+    Kasininkas KA1 aptarnauja VIP klienta VIP77. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP72. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP74. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP76. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP70. Aptarnavimas jau trunka 6 min. is 6 min.
+
+  T=94 min.
+    Atejo VIP klientas VIP80.
+    Eileje stovi paprasti klientai: KL52 KL55 KL58 KL59 KL60 KL64 KL68 KL69
+    KL71 KL73 KL75 KL78 KL79.
+    Kasininkas KA1 aptarnauja VIP klienta VIP77. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP72. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP74. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP76. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL51. Aptarnavimas jau trunka 0 min. is 6 min.
+
+  T=95 min.
+    Eileje stovi VIP klientas VIP80.
+    Eileje stovi paprasti klientai: KL52 KL55 KL58 KL59 KL60 KL64 KL68 KL69
+    KL71 KL73 KL75 KL78 KL79.
+    Kasininkas KA1 aptarnauja VIP klienta VIP77. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP72. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP74. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP76. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL51. Aptarnavimas jau trunka 1 min. is 6 min.
+
+  T=96 min.
+    Atejo paprastas klientas KL81.
+    Eileje stovi paprasti klientai: KL52 KL55 KL58 KL59 KL60 KL64 KL68 KL69
+    KL71 KL73 KL75 KL78 KL79.
+    Kasininkas KA1 aptarnauja VIP klienta VIP77. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP80. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA3 aptarnauja VIP klienta VIP74. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP76. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL51. Aptarnavimas jau trunka 2 min. is 6 min.
+
+  T=97 min.
+    Eileje stovi paprasti klientai: KL55 KL58 KL59 KL60 KL64 KL68 KL69 KL71
+    KL73 KL75 KL78 KL79 KL81.
+    Kasininkas KA1 aptarnauja VIP klienta VIP77. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP80. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL52. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA4 aptarnauja VIP klienta VIP76. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL51. Aptarnavimas jau trunka 3 min. is 6 min.
+
+  T=98 min.
+    Atejo VIP klientas VIP82.
+    Eileje stovi paprasti klientai: KL58 KL59 KL60 KL64 KL68 KL69 KL71 KL73
+    KL75 KL78 KL79 KL81.
+    Kasininkas KA1 aptarnauja VIP klienta VIP77. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP80. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL52. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL55. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL51. Aptarnavimas jau trunka 4 min. is 6 min.
+
+  T=99 min.
+    Atejo VIP klientas VIP83.
+    Eileje stovi paprasti klientai: KL58 KL59 KL60 KL64 KL68 KL69 KL71 KL73
+    KL75 KL78 KL79 KL81.
+    Kasininkas KA1 aptarnauja VIP klienta VIP82. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP80. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL52. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL55. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL51. Aptarnavimas jau trunka 5 min. is 6 min.
+
+  T=100 min.
+    Eileje stovi VIP klientas VIP83.
+    Eileje stovi paprasti klientai: KL58 KL59 KL60 KL64 KL68 KL69 KL71 KL73
+    KL75 KL78 KL79 KL81.
+    Kasininkas KA1 aptarnauja VIP klienta VIP82. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP80. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL52. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL55. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL51. Aptarnavimas jau trunka 6 min. is 6 min.
+
+  T=101 min.
+    Eileje stovi paprasti klientai: KL58 KL59 KL60 KL64 KL68 KL69 KL71 KL73
+    KL75 KL78 KL79 KL81.
+    Kasininkas KA1 aptarnauja VIP klienta VIP82. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP80. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL52. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL55. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP83. Aptarnavimas jau trunka 0 min. is 6 min.
+
+  T=102 min.
+    Eileje stovi paprasti klientai: KL58 KL59 KL60 KL64 KL68 KL69 KL71 KL73
+    KL75 KL78 KL79 KL81.
+    Kasininkas KA1 aptarnauja VIP klienta VIP82. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA2 aptarnauja VIP klienta VIP80. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL52. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL55. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP83. Aptarnavimas jau trunka 1 min. is 6 min.
+
+  T=103 min.
+    Eileje stovi paprasti klientai: KL59 KL60 KL64 KL68 KL69 KL71 KL73 KL75
+    KL78 KL79 KL81.
+    Kasininkas KA1 aptarnauja VIP klienta VIP82. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL58. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL52. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL55. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP83. Aptarnavimas jau trunka 2 min. is 6 min.
+
+  T=104 min.
+    Eileje stovi paprasti klientai: KL60 KL64 KL68 KL69 KL71 KL73 KL75 KL78
+    KL79 KL81.
+    Kasininkas KA1 aptarnauja VIP klienta VIP82. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL58. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL59. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL55. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP83. Aptarnavimas jau trunka 3 min. is 6 min.
+
+  T=105 min.
+    Eileje stovi paprasti klientai: KL64 KL68 KL69 KL71 KL73 KL75 KL78 KL79
+    KL81.
+    Kasininkas KA1 aptarnauja VIP klienta VIP82. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL58. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL59. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL60. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP83. Aptarnavimas jau trunka 4 min. is 6 min.
+
+  T=106 min.
+    Eileje stovi paprasti klientai: KL68 KL69 KL71 KL73 KL75 KL78 KL79 KL81.
+    Kasininkas KA1 aptarnauja paprasta klienta KL64. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL58. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL59. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL60. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP83. Aptarnavimas jau trunka 5 min. is 6 min.
+
+  T=107 min.
+    Eileje stovi paprasti klientai: KL68 KL69 KL71 KL73 KL75 KL78 KL79 KL81.
+    Kasininkas KA1 aptarnauja paprasta klienta KL64. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL58. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL59. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL60. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA5 aptarnauja VIP klienta VIP83. Aptarnavimas jau trunka 6 min. is 6 min.
+
+  T=108 min.
+    Eileje stovi paprasti klientai: KL69 KL71 KL73 KL75 KL78 KL79 KL81.
+    Kasininkas KA1 aptarnauja paprasta klienta KL64. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL58. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL59. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL60. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL68. Aptarnavimas jau trunka 0 min. is 6 min.
+
+  T=109 min.
+    Eileje stovi paprasti klientai: KL69 KL71 KL73 KL75 KL78 KL79 KL81.
+    Kasininkas KA1 aptarnauja paprasta klienta KL64. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL58. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL59. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL60. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL68. Aptarnavimas jau trunka 1 min. is 6 min.
+
+  T=110 min.
+    Eileje stovi paprasti klientai: KL71 KL73 KL75 KL78 KL79 KL81.
+    Kasininkas KA1 aptarnauja paprasta klienta KL64. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL69. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL59. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL60. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL68. Aptarnavimas jau trunka 2 min. is 6 min.
+
+  T=111 min.
+    Eileje stovi paprasti klientai: KL73 KL75 KL78 KL79 KL81.
+    Kasininkas KA1 aptarnauja paprasta klienta KL64. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL69. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL71. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL60. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL68. Aptarnavimas jau trunka 3 min. is 6 min.
+
+  T=112 min.
+    Eileje stovi paprasti klientai: KL75 KL78 KL79 KL81.
+    Kasininkas KA1 aptarnauja paprasta klienta KL64. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL69. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL71. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL73. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL68. Aptarnavimas jau trunka 4 min. is 6 min.
+
+  T=113 min.
+    Eileje stovi paprasti klientai: KL78 KL79 KL81.
+    Kasininkas KA1 aptarnauja paprasta klienta KL75. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL69. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL71. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL73. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL68. Aptarnavimas jau trunka 5 min. is 6 min.
+
+  T=114 min.
+    Eileje stovi paprasti klientai: KL78 KL79 KL81.
+    Kasininkas KA1 aptarnauja paprasta klienta KL75. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL69. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL71. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL73. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL68. Aptarnavimas jau trunka 6 min. is 6 min.
+
+  T=115 min.
+    Eileje stovi paprasti klientai: KL79 KL81.
+    Kasininkas KA1 aptarnauja paprasta klienta KL75. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL69. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL71. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL73. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL78. Aptarnavimas jau trunka 0 min. is 6 min.
+
+  T=116 min.
+    Eileje stovi paprasti klientai: KL79 KL81.
+    Kasininkas KA1 aptarnauja paprasta klienta KL75. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL69. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL71. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL73. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL78. Aptarnavimas jau trunka 1 min. is 6 min.
+
+  T=117 min.
+    Eileje stovi paprastas klientas KL81.
+    Kasininkas KA1 aptarnauja paprasta klienta KL75. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL79. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL71. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL73. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL78. Aptarnavimas jau trunka 2 min. is 6 min.
+
+  T=118 min.
+    Kasininkas KA1 aptarnauja paprasta klienta KL75. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL79. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL81. Aptarnavimas jau trunka 0 min. is 6 min.
+    Kasininkas KA4 aptarnauja paprasta klienta KL73. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA5 aptarnauja paprasta klienta KL78. Aptarnavimas jau trunka 3 min. is 6 min.
+
+  T=119 min.
+    Kasininkas KA1 aptarnauja paprasta klienta KL75. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA2 aptarnauja paprasta klienta KL79. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL81. Aptarnavimas jau trunka 1 min. is 6 min.
+    Kasininkas KA4 baige darba.
+    Kasininkas KA5 aptarnauja paprasta klienta KL78. Aptarnavimas jau trunka 4 min. is 6 min.
+
+  T=120 min.
+    Kasininkas KA1 baige darba.
+    Kasininkas KA2 aptarnauja paprasta klienta KL79. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL81. Aptarnavimas jau trunka 2 min. is 6 min.
+    Kasininkas KA4 baige darba.
+    Kasininkas KA5 aptarnauja paprasta klienta KL78. Aptarnavimas jau trunka 5 min. is 6 min.
+
+  T=121 min.
+    Kasininkas KA1 baige darba.
+    Kasininkas KA2 aptarnauja paprasta klienta KL79. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL81. Aptarnavimas jau trunka 3 min. is 6 min.
+    Kasininkas KA4 baige darba.
+    Kasininkas KA5 aptarnauja paprasta klienta KL78. Aptarnavimas jau trunka 6 min. is 6 min.
+
+  T=122 min.
+    Kasininkas KA1 baige darba.
+    Kasininkas KA2 aptarnauja paprasta klienta KL79. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL81. Aptarnavimas jau trunka 4 min. is 6 min.
+    Kasininkas KA4 baige darba.
+    Kasininkas KA5 baige darba.
+
+  T=123 min.
+    Kasininkas KA1 baige darba.
+    Kasininkas KA2 aptarnauja paprasta klienta KL79. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA3 aptarnauja paprasta klienta KL81. Aptarnavimas jau trunka 5 min. is 6 min.
+    Kasininkas KA4 baige darba.
+    Kasininkas KA5 baige darba.
+
+  T=124 min.
+    Kasininkas KA1 baige darba.
+    Kasininkas KA2 baige darba.
+    Kasininkas KA3 aptarnauja paprasta klienta KL81. Aptarnavimas jau trunka 6 min. is 6 min.
+    Kasininkas KA4 baige darba.
+    Kasininkas KA5 baige darba.
+
+  T=125 min.
+    Kasininkas KA1 baige darba.
+    Kasininkas KA2 baige darba.
+    Kasininkas KA3 baige darba.
+    Kasininkas KA4 baige darba.
+    Kasininkas KA5 baige darba.
+
+DALIS 3. Rezultatai.
+  3.1. Procesu 1 ir 2 rezultatai:
+
+                         Duomuo                       |  Proceso 1 balas  |  Proceso 2 balas  |  Efektyvesnis procesas
+  --------------------------------------------------------------------------------------------------------------------
+  Kasininku stoviniavimo laikas                       |          29 min.  |         192 min.  |      Procesas 1
+  Virsvalandziu laikas                                |         110 min.  |         354 min.  |      Procesas 1
+  Vidutinis paprastu klientu praleistas laikas eileje |          15 min.  |          16 min.  |      Procesas 1
+  Maksimalus VIP praleistas laikas eileje             |           2 min.  |         232 min.  |      Procesas 1
+

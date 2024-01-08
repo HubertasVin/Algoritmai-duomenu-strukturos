@@ -1,23 +1,23 @@
 2 uzduotis, 8 variantas. 3 grupe, 2 pogrupis. Hubertas Vindzigalskis.
+
 Salyga: 8. Parasyti programa, sprendziancia Sudoku. Randamas pirmasis sprendinys.
-Algoritmas pradeda nuo langelio X=1, Y=9 ir keliauja iki X=9.
+Algoritmas pradeda nuo langelio X=1 Y=9 ir keliauja iki X=9.
 Tuomet sprendimas tesiamas zemesneje eiluteje Y=8 ir taip
 keliaujame kol pasiekiame Y=1 eilutes pabaiga, kuomet atrandamas sprendinys.
 
 Algoritmas:
   1) Is eiles tikrinamas kiekvienas langelis ar jis nera uzimtas.
-  2) Jei langelis uzimtas ir yra paskutinis eiluteje, tada einame i zemensne
-       eilute. Jei nera paskutinis eiluteje einame i sekanti langeli eiluteje.
-  3) Jei langelis tuscias, sukame cikla nuo 1 iki 9 ir bandome istatyti
-       kiekviena skaiciu tikrindami jo validuma sudoku sprendime su funkcija isValid().
+  2) Jei langelis uzimtas ir yra paskutinis eiluteje, tai einame i zemensne
+     eilute. Jei nera paskutinis eiluteje, tai einame i sekanti langeli eiluteje.
+  3) Jei langelis tuscias, tai sukame cikla nuo 1 iki 9 ir bandome istatyti
+     kiekviena skaiciu tikrindami jo validuma sudoku sprendime su funkcija isValid().
   4) Istacius skaiciu i langeli tikriname ar langelis buvo paskutinis
-       eiluteje, jei taip, keliaujame i zemesne eilute, jei ne, keliaujama
-       i sekanti langeli eiluteje.
+     eiluteje, jei taip, keliaujame i zemesne eilute, jei ne, keliaujame
+     i sekanti langeli eiluteje.
   5) Kartojame visus siuos veiksmus, kol pasiekiame zemiausios eilutes (Y=1) pabaiga.
 
 DALIS 1. Duomenys.
-  1.1. Salyga: Parasyti programa, kuri issprendzia sudoku.
-  1.2. Pradiniai duomenys:
+  1.1. Pradiniai duomenys:
 
   Y ^
     | -------------------------------
@@ -54,22 +54,22 @@ DALIS 2. Vykdymas
     15) -------------- X=6,Y=8. Bandoma statyti skaiciu 6.
     16) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
     17) ---------------- X=8,Y=8. Langelis yra uzimtas skaiciumi 4.
-    18) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. backtrack. fail.
-    19) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. backtrack. fail.
-    20) --------------- X=7,Y=8. Nerastas tinkamas skaicius. backtrack. fail.
-    21) -------------- X=6,Y=8. Nerastas tinkamas skaicius. backtrack. fail.
+    18) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    19) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    20) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    21) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
     22) ------------- X=5,Y=8. Bandoma statyti skaiciu 6.
-    23) -------------- X=6,Y=8. Nerastas tinkamas skaicius. backtrack. fail.
-    24) ------------- X=5,Y=8. Nerastas tinkamas skaicius. backtrack. fail.
-    25) ------------ X=4,Y=8. Nerastas tinkamas skaicius. backtrack. fail.
+    23) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    24) ------------- X=5,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    25) ------------ X=4,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
     26) ----------- X=3,Y=8. Bandoma statyti skaiciu 9.
     27) ------------ X=4,Y=8. Bandoma statyti skaiciu 2.
     28) ------------- X=5,Y=8. Bandoma statyti skaiciu 5.
     29) -------------- X=6,Y=8. Bandoma statyti skaiciu 6.
     30) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
     31) ---------------- X=8,Y=8. Langelis yra uzimtas skaiciumi 4.
-    32) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. backtrack. fail.
-    33) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. backtrack. fail.
+    32) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    33) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
     34) --------------- X=7,Y=8. Bandoma statyti skaiciu 8.
     35) ---------------- X=8,Y=8. Langelis yra uzimtas skaiciumi 4.
     36) ----------------- X=9,Y=8. Bandoma statyti skaiciu 1. Sprendimas tesiamas zemesneje eiluteje.
@@ -97,8 +97,8 @@ DALIS 2. Vykdymas
     58) --------------------------------------- X=4,Y=5. Langelis yra uzimtas skaiciumi 7.
     59) ---------------------------------------- X=5,Y=5. Bandoma statyti skaiciu 4.
     60) ----------------------------------------- X=6,Y=5. Langelis yra uzimtas skaiciumi 3.
-    61) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. backtrack. fail.
-    62) ----------------------------------------- X=6,Y=5. Nerastas tinkamas skaicius. backtrack. fail.
+    61) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+    62) ----------------------------------------- X=6,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
     63) ---------------------------------------- X=5,Y=5. Bandoma statyti skaiciu 6.
     64) ----------------------------------------- X=6,Y=5. Langelis yra uzimtas skaiciumi 3.
     65) ------------------------------------------ X=7,Y=5. Bandoma statyti skaiciu 4.
@@ -107,26 +107,26 @@ DALIS 2. Vykdymas
     68) --------------------------------------------- X=1,Y=4. Bandoma statyti skaiciu 2.
     69) ---------------------------------------------- X=2,Y=4. Bandoma statyti skaiciu 8.
     70) ----------------------------------------------- X=3,Y=4. Langelis yra uzimtas skaiciumi 6.
-    71) ------------------------------------------------ X=4,Y=4. Nerastas tinkamas skaicius. backtrack. fail.
-    72) ----------------------------------------------- X=3,Y=4. Nerastas tinkamas skaicius. backtrack. fail.
-    73) ---------------------------------------------- X=2,Y=4. Nerastas tinkamas skaicius. backtrack. fail.
-    74) --------------------------------------------- X=1,Y=4. Nerastas tinkamas skaicius. backtrack. fail.
-    75) -------------------------------------------- X=1,Y=5. Nerastas tinkamas skaicius. backtrack. fail.
-    76) ------------------------------------------- X=8,Y=5. Nerastas tinkamas skaicius. backtrack. fail.
-    77) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. backtrack. fail.
-    78) ----------------------------------------- X=6,Y=5. Nerastas tinkamas skaicius. backtrack. fail.
-    79) ---------------------------------------- X=5,Y=5. Nerastas tinkamas skaicius. backtrack. fail.
-    80) --------------------------------------- X=4,Y=5. Nerastas tinkamas skaicius. backtrack. fail.
-    81) -------------------------------------- X=3,Y=5. Nerastas tinkamas skaicius. backtrack. fail.
-    82) ------------------------------------- X=2,Y=5. Nerastas tinkamas skaicius. backtrack. fail.
-    83) ------------------------------------ X=1,Y=5. Nerastas tinkamas skaicius. backtrack. fail.
-    84) ----------------------------------- X=9,Y=6. Nerastas tinkamas skaicius. backtrack. fail.
-    85) ---------------------------------- X=8,Y=6. Nerastas tinkamas skaicius. backtrack. fail.
-    86) --------------------------------- X=7,Y=6. Nerastas tinkamas skaicius. backtrack. fail.
-    87) -------------------------------- X=6,Y=6. Nerastas tinkamas skaicius. backtrack. fail.
-    88) ------------------------------- X=5,Y=6. Nerastas tinkamas skaicius. backtrack. fail.
-    89) ------------------------------ X=4,Y=6. Nerastas tinkamas skaicius. backtrack. fail.
-    90) ----------------------------- X=3,Y=6. Nerastas tinkamas skaicius. backtrack. fail.
+    71) ------------------------------------------------ X=4,Y=4. Nerastas tinkamas skaicius. Backtrack. Fail.
+    72) ----------------------------------------------- X=3,Y=4. Nerastas tinkamas skaicius. Backtrack. Fail.
+    73) ---------------------------------------------- X=2,Y=4. Nerastas tinkamas skaicius. Backtrack. Fail.
+    74) --------------------------------------------- X=1,Y=4. Nerastas tinkamas skaicius. Backtrack. Fail.
+    75) -------------------------------------------- X=1,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+    76) ------------------------------------------- X=8,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+    77) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+    78) ----------------------------------------- X=6,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+    79) ---------------------------------------- X=5,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+    80) --------------------------------------- X=4,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+    81) -------------------------------------- X=3,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+    82) ------------------------------------- X=2,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+    83) ------------------------------------ X=1,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+    84) ----------------------------------- X=9,Y=6. Nerastas tinkamas skaicius. Backtrack. Fail.
+    85) ---------------------------------- X=8,Y=6. Nerastas tinkamas skaicius. Backtrack. Fail.
+    86) --------------------------------- X=7,Y=6. Nerastas tinkamas skaicius. Backtrack. Fail.
+    87) -------------------------------- X=6,Y=6. Nerastas tinkamas skaicius. Backtrack. Fail.
+    88) ------------------------------- X=5,Y=6. Nerastas tinkamas skaicius. Backtrack. Fail.
+    89) ------------------------------ X=4,Y=6. Nerastas tinkamas skaicius. Backtrack. Fail.
+    90) ----------------------------- X=3,Y=6. Nerastas tinkamas skaicius. Backtrack. Fail.
     91) ---------------------------- X=2,Y=6. Bandoma statyti skaiciu 8.
     92) ----------------------------- X=3,Y=6. Langelis yra uzimtas skaiciumi 7.
     93) ------------------------------ X=4,Y=6. Langelis yra uzimtas skaiciumi 1.
@@ -141,11 +141,11 @@ DALIS 2. Vykdymas
    102) --------------------------------------- X=4,Y=5. Langelis yra uzimtas skaiciumi 7.
    103) ---------------------------------------- X=5,Y=5. Bandoma statyti skaiciu 6.
    104) ----------------------------------------- X=6,Y=5. Langelis yra uzimtas skaiciumi 3.
-   105) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. backtrack. fail.
-   106) ----------------------------------------- X=6,Y=5. Nerastas tinkamas skaicius. backtrack. fail.
-   107) ---------------------------------------- X=5,Y=5. Nerastas tinkamas skaicius. backtrack. fail.
-   108) --------------------------------------- X=4,Y=5. Nerastas tinkamas skaicius. backtrack. fail.
-   109) -------------------------------------- X=3,Y=5. Nerastas tinkamas skaicius. backtrack. fail.
+   105) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   106) ----------------------------------------- X=6,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   107) ---------------------------------------- X=5,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   108) --------------------------------------- X=4,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   109) -------------------------------------- X=3,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
    110) ------------------------------------- X=2,Y=5. Bandoma statyti skaiciu 9.
    111) -------------------------------------- X=3,Y=5. Bandoma statyti skaiciu 1.
    112) --------------------------------------- X=4,Y=5. Langelis yra uzimtas skaiciumi 7.

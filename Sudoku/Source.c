@@ -305,7 +305,7 @@ bool solveSudoku(int puzzle[SIZE][SIZE], int row, int col, FILE *fw)
         // Cell is not empty, move on to next cell
         // fprintf(fw, "1\n");
         // printPuzzle(puzzle, fw);
-        printf("%d\n", (row == SIZE - 1) ? true : false);
+        // printf("%d\n", (row == SIZE - 1) ? true : false);
         printPart2('w', (row == SIZE - 1) ? true : false, row, col, puzzle[row][col], fw); // Call to print protocol taken
         if (col == SIZE - 1)
         {
