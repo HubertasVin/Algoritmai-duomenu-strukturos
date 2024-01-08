@@ -1,0 +1,1 @@
+void beginWork; void beginWork2; void createRandomClient; void updateCashierStatus; void moveClientsToQueue; void moveClientsToCashiers; void moveClientsToCashiers2; void printPart1; void printPart2; void printPart3; int numberOfDigits; bool keepGoing; void calculateScoreElements; int calculateEfficiencyScore;

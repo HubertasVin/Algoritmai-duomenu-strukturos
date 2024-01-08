@@ -1,0 +1,57 @@
+ADS 4 uzduotis. 14 variantas.
+Hubertas Vindzigalskis. 3 grupe, 2 pogrupis.
+
+Salyga: Is duoto grafo suformuoti medi. (Grafo realizacija grindziama kaiminystes
+sarysiais; naudoti paieskos i ploti metoda.)
+
+DALIS 1. Pradiniai duomenys:
+  1) Virsuniu skaicius = 5
+  2) Grafo brezinys:
+       1---3
+      /|   |
+     0 |   |
+      \|   |
+       2---4
+
+DALIS 2. Vykdymas:
+  T=0. Busena 0:
+          Aplankytu virsuniu aibe: {}
+          Virsuniu eiles aibe: tuscia aibe
+
+  T=1. Veiksmas 1:
+          Aplankomu virsuniu aibe: {1, 2}
+          Virsuniu istatomu i eile aibe: {1, 2}
+        Busena 1:
+          Aplankytu virsuniu aibe: {0, 1, 2}
+          Virsuniu eiles aibe: {1, 2}
+
+  T=2. Veiksmas 2:
+          Aplankomu virsuniu aibe: {3}
+          Virsuniu istatomu i eile aibe: {3}
+        Busena 2:
+          Aplankytu virsuniu aibe: {0, 1, 2, 3}
+          Virsuniu eiles aibe: {2, 3}
+
+  T=3. Veiksmas 3:
+          Aplankomu virsuniu aibe: {4}
+          Virsuniu istatomu i eile aibe: {4}
+        Busena 3:
+          Aplankytu virsuniu aibe: {0, 1, 2, 3, 4}
+          Virsuniu eiles aibe: {3, 4}
+
+  T=4. Veiksmas 4:
+          Aplankomu virsuniu aibe: {}
+          Virsuniu istatomu i eile aibe: {}
+        Busena 4:
+          Aplankytu virsuniu aibe: {0, 1, 2, 3, 4}
+          Virsuniu eiles aibe: {4}
+
+  T=5. Veiksmas 5:
+          Aplankomu virsuniu aibe: {}
+          Virsuniu istatomu i eile aibe: {}
+        Busena 5:
+          Aplankytu virsuniu aibe: {0, 1, 2, 3, 4}
+          Virsuniu eiles aibe: tuscia aibe
+
+DALIS 3. Rezultatas:
+  0, 1, 2, 3, 4

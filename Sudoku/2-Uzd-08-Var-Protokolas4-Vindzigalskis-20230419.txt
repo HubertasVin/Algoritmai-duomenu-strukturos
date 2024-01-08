@@ -1,0 +1,762 @@
+2 uzduotis, 8 variantas. 3 grupe, 2 pogrupis. Hubertas Vindzigalskis.
+
+Salyga: 8. Parasyti programa, sprendziancia Sudoku. Randamas pirmasis sprendinys.
+Algoritmas pradeda nuo langelio X=1 Y=9 ir keliauja iki X=9.
+Tuomet sprendimas tesiamas zemesneje eiluteje Y=8 ir taip
+keliaujame kol pasiekiame Y=1 eilutes pabaiga, kuomet atrandamas sprendinys.
+
+Algoritmas:
+  1) Is eiles tikrinamas kiekvienas langelis, ar jis nera uzimtas.
+  2) Jei langelis uzimtas ir yra paskutinis eiluteje, tai einame i zemesne
+     eilute. Jei nera paskutinis eiluteje, tai einame i sekanti langeli eiluteje.
+  3) Jei langelis tuscias, tai sukame cikla nuo 1 iki 9 ir bandome istatyti
+     kiekviena skaiciu tikrindami jo validuma sudoku sprendime su funkcija isValid().
+  4) Istacius skaiciu i langeli tikriname, ar langelis buvo paskutinis
+     eiluteje, jei taip, keliaujame i zemesne eilute, jei ne, keliaujama
+     i sekanti langeli eiluteje.
+  5) Kartojame visus siuos veiksmus, kol pasiekiame zemiausios eilutes (Y=1) pabaiga.
+
+DALIS 1. Duomenys.
+  1.1. Pradiniai duomenys:
+
+  Y ^
+    | -------------------------------
+   9| | 0  0  0 | 0  0  0 | 0  0  0 |
+   8| | 0  0  0 | 0  0  0 | 0  0  0 |
+   7| | 0  0  0 | 0  0  0 | 0  0  0 |
+    | -------------------------------
+   6| | 0  0  0 | 0  0  0 | 0  0  0 |
+   5| | 0  0  0 | 0  0  0 | 0  0  0 |
+   4| | 0  0  0 | 0  0  0 | 0  0  0 |
+    | -------------------------------
+   3| | 0  0  0 | 0  0  0 | 0  0  0 |
+   2| | 0  0  0 | 0  0  0 | 0  0  0 |
+   1| | 0  0  0 | 0  0  0 | 0  0  0 |
+    | -------------------------------
+    0--------------------------------->
+        1  2  3   4  5  6   7  8  9   X
+
+DALIS 2. Vykdymas
+     1)  X=1,Y=9. Bandoma statyti skaiciu 1.
+     2) - X=2,Y=9. Bandoma statyti skaiciu 2.
+     3) -- X=3,Y=9. Bandoma statyti skaiciu 3.
+     4) --- X=4,Y=9. Bandoma statyti skaiciu 4.
+     5) ---- X=5,Y=9. Bandoma statyti skaiciu 5.
+     6) ----- X=6,Y=9. Bandoma statyti skaiciu 6.
+     7) ------ X=7,Y=9. Bandoma statyti skaiciu 7.
+     8) ------- X=8,Y=9. Bandoma statyti skaiciu 8.
+     9) -------- X=9,Y=9. Bandoma statyti skaiciu 9. Sprendimas tesiamas zemesneje eiluteje.
+    10) --------- X=1,Y=8. Bandoma statyti skaiciu 4.
+    11) ---------- X=2,Y=8. Bandoma statyti skaiciu 5.
+    12) ----------- X=3,Y=8. Bandoma statyti skaiciu 6.
+    13) ------------ X=4,Y=8. Bandoma statyti skaiciu 1.
+    14) ------------- X=5,Y=8. Bandoma statyti skaiciu 2.
+    15) -------------- X=6,Y=8. Bandoma statyti skaiciu 3.
+    16) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    17) -------------- X=6,Y=8. Bandoma statyti skaiciu 7.
+    18) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+    19) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    20) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    21) -------------- X=6,Y=8. Bandoma statyti skaiciu 8.
+    22) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+    23) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    24) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    25) -------------- X=6,Y=8. Bandoma statyti skaiciu 9.
+    26) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+    27) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    28) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    29) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    30) ------------- X=5,Y=8. Bandoma statyti skaiciu 3.
+    31) -------------- X=6,Y=8. Bandoma statyti skaiciu 2.
+    32) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    33) -------------- X=6,Y=8. Bandoma statyti skaiciu 7.
+    34) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+    35) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    36) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    37) -------------- X=6,Y=8. Bandoma statyti skaiciu 8.
+    38) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+    39) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    40) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    41) -------------- X=6,Y=8. Bandoma statyti skaiciu 9.
+    42) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+    43) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    44) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    45) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    46) ------------- X=5,Y=8. Bandoma statyti skaiciu 7.
+    47) -------------- X=6,Y=8. Bandoma statyti skaiciu 2.
+    48) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+    49) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    50) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    51) -------------- X=6,Y=8. Bandoma statyti skaiciu 3.
+    52) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+    53) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    54) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    55) -------------- X=6,Y=8. Bandoma statyti skaiciu 8.
+    56) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+    57) ---------------- X=8,Y=8. Bandoma statyti skaiciu 3.
+    58) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    59) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    60) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+    61) ---------------- X=8,Y=8. Bandoma statyti skaiciu 2.
+    62) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    63) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    64) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    65) -------------- X=6,Y=8. Bandoma statyti skaiciu 9.
+    66) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+    67) ---------------- X=8,Y=8. Bandoma statyti skaiciu 3.
+    68) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    69) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    70) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+    71) ---------------- X=8,Y=8. Bandoma statyti skaiciu 2.
+    72) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    73) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    74) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    75) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    76) ------------- X=5,Y=8. Bandoma statyti skaiciu 8.
+    77) -------------- X=6,Y=8. Bandoma statyti skaiciu 2.
+    78) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+    79) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    80) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    81) -------------- X=6,Y=8. Bandoma statyti skaiciu 3.
+    82) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+    83) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    84) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    85) -------------- X=6,Y=8. Bandoma statyti skaiciu 7.
+    86) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+    87) ---------------- X=8,Y=8. Bandoma statyti skaiciu 3.
+    88) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    89) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    90) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+    91) ---------------- X=8,Y=8. Bandoma statyti skaiciu 2.
+    92) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    93) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    94) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    95) -------------- X=6,Y=8. Bandoma statyti skaiciu 9.
+    96) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+    97) ---------------- X=8,Y=8. Bandoma statyti skaiciu 3.
+    98) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    99) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   100) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   101) ---------------- X=8,Y=8. Bandoma statyti skaiciu 2.
+   102) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   103) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   104) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   105) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   106) ------------- X=5,Y=8. Bandoma statyti skaiciu 9.
+   107) -------------- X=6,Y=8. Bandoma statyti skaiciu 2.
+   108) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   109) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   110) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   111) -------------- X=6,Y=8. Bandoma statyti skaiciu 3.
+   112) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   113) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   114) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   115) -------------- X=6,Y=8. Bandoma statyti skaiciu 7.
+   116) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   117) ---------------- X=8,Y=8. Bandoma statyti skaiciu 3.
+   118) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   119) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   120) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   121) ---------------- X=8,Y=8. Bandoma statyti skaiciu 2.
+   122) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   123) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   124) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   125) -------------- X=6,Y=8. Bandoma statyti skaiciu 8.
+   126) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   127) ---------------- X=8,Y=8. Bandoma statyti skaiciu 3.
+   128) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   129) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   130) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   131) ---------------- X=8,Y=8. Bandoma statyti skaiciu 2.
+   132) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   133) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   134) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   135) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   136) ------------- X=5,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   137) ------------ X=4,Y=8. Bandoma statyti skaiciu 2.
+   138) ------------- X=5,Y=8. Bandoma statyti skaiciu 1.
+   139) -------------- X=6,Y=8. Bandoma statyti skaiciu 3.
+   140) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   141) -------------- X=6,Y=8. Bandoma statyti skaiciu 7.
+   142) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   143) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   144) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   145) -------------- X=6,Y=8. Bandoma statyti skaiciu 8.
+   146) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   147) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   148) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   149) -------------- X=6,Y=8. Bandoma statyti skaiciu 9.
+   150) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   151) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   152) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   153) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   154) ------------- X=5,Y=8. Bandoma statyti skaiciu 3.
+   155) -------------- X=6,Y=8. Bandoma statyti skaiciu 1.
+   156) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   157) -------------- X=6,Y=8. Bandoma statyti skaiciu 7.
+   158) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   159) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   160) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   161) -------------- X=6,Y=8. Bandoma statyti skaiciu 8.
+   162) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   163) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   164) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   165) -------------- X=6,Y=8. Bandoma statyti skaiciu 9.
+   166) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   167) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   168) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   169) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   170) ------------- X=5,Y=8. Bandoma statyti skaiciu 7.
+   171) -------------- X=6,Y=8. Bandoma statyti skaiciu 1.
+   172) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   173) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   174) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   175) -------------- X=6,Y=8. Bandoma statyti skaiciu 3.
+   176) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   177) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   178) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   179) -------------- X=6,Y=8. Bandoma statyti skaiciu 8.
+   180) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   181) ---------------- X=8,Y=8. Bandoma statyti skaiciu 3.
+   182) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   183) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   184) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   185) ---------------- X=8,Y=8. Bandoma statyti skaiciu 1.
+   186) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   187) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   188) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   189) -------------- X=6,Y=8. Bandoma statyti skaiciu 9.
+   190) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   191) ---------------- X=8,Y=8. Bandoma statyti skaiciu 3.
+   192) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   193) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   194) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   195) ---------------- X=8,Y=8. Bandoma statyti skaiciu 1.
+   196) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   197) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   198) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   199) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   200) ------------- X=5,Y=8. Bandoma statyti skaiciu 8.
+   201) -------------- X=6,Y=8. Bandoma statyti skaiciu 1.
+   202) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   203) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   204) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   205) -------------- X=6,Y=8. Bandoma statyti skaiciu 3.
+   206) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   207) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   208) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   209) -------------- X=6,Y=8. Bandoma statyti skaiciu 7.
+   210) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   211) ---------------- X=8,Y=8. Bandoma statyti skaiciu 3.
+   212) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   213) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   214) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   215) ---------------- X=8,Y=8. Bandoma statyti skaiciu 1.
+   216) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   217) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   218) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   219) -------------- X=6,Y=8. Bandoma statyti skaiciu 9.
+   220) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   221) ---------------- X=8,Y=8. Bandoma statyti skaiciu 3.
+   222) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   223) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   224) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   225) ---------------- X=8,Y=8. Bandoma statyti skaiciu 1.
+   226) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   227) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   228) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   229) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   230) ------------- X=5,Y=8. Bandoma statyti skaiciu 9.
+   231) -------------- X=6,Y=8. Bandoma statyti skaiciu 1.
+   232) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   233) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   234) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   235) -------------- X=6,Y=8. Bandoma statyti skaiciu 3.
+   236) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   237) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   238) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   239) -------------- X=6,Y=8. Bandoma statyti skaiciu 7.
+   240) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   241) ---------------- X=8,Y=8. Bandoma statyti skaiciu 3.
+   242) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   243) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   244) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   245) ---------------- X=8,Y=8. Bandoma statyti skaiciu 1.
+   246) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   247) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   248) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   249) -------------- X=6,Y=8. Bandoma statyti skaiciu 8.
+   250) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   251) ---------------- X=8,Y=8. Bandoma statyti skaiciu 3.
+   252) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   253) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   254) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   255) ---------------- X=8,Y=8. Bandoma statyti skaiciu 1.
+   256) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   257) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   258) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   259) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   260) ------------- X=5,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   261) ------------ X=4,Y=8. Bandoma statyti skaiciu 3.
+   262) ------------- X=5,Y=8. Bandoma statyti skaiciu 1.
+   263) -------------- X=6,Y=8. Bandoma statyti skaiciu 2.
+   264) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   265) -------------- X=6,Y=8. Bandoma statyti skaiciu 7.
+   266) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   267) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   268) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   269) -------------- X=6,Y=8. Bandoma statyti skaiciu 8.
+   270) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   271) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   272) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   273) -------------- X=6,Y=8. Bandoma statyti skaiciu 9.
+   274) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   275) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   276) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   277) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   278) ------------- X=5,Y=8. Bandoma statyti skaiciu 2.
+   279) -------------- X=6,Y=8. Bandoma statyti skaiciu 1.
+   280) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   281) -------------- X=6,Y=8. Bandoma statyti skaiciu 7.
+   282) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   283) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   284) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   285) -------------- X=6,Y=8. Bandoma statyti skaiciu 8.
+   286) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   287) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   288) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   289) -------------- X=6,Y=8. Bandoma statyti skaiciu 9.
+   290) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   291) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   292) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   293) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   294) ------------- X=5,Y=8. Bandoma statyti skaiciu 7.
+   295) -------------- X=6,Y=8. Bandoma statyti skaiciu 1.
+   296) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   297) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   298) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   299) -------------- X=6,Y=8. Bandoma statyti skaiciu 2.
+   300) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   301) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   302) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   303) -------------- X=6,Y=8. Bandoma statyti skaiciu 8.
+   304) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   305) ---------------- X=8,Y=8. Bandoma statyti skaiciu 2.
+   306) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   307) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   308) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   309) ---------------- X=8,Y=8. Bandoma statyti skaiciu 1.
+   310) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   311) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   312) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   313) -------------- X=6,Y=8. Bandoma statyti skaiciu 9.
+   314) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   315) ---------------- X=8,Y=8. Bandoma statyti skaiciu 2.
+   316) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   317) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   318) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   319) ---------------- X=8,Y=8. Bandoma statyti skaiciu 1.
+   320) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   321) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   322) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   323) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   324) ------------- X=5,Y=8. Bandoma statyti skaiciu 8.
+   325) -------------- X=6,Y=8. Bandoma statyti skaiciu 1.
+   326) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   327) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   328) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   329) -------------- X=6,Y=8. Bandoma statyti skaiciu 2.
+   330) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   331) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   332) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   333) -------------- X=6,Y=8. Bandoma statyti skaiciu 7.
+   334) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   335) ---------------- X=8,Y=8. Bandoma statyti skaiciu 2.
+   336) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   337) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   338) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   339) ---------------- X=8,Y=8. Bandoma statyti skaiciu 1.
+   340) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   341) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   342) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   343) -------------- X=6,Y=8. Bandoma statyti skaiciu 9.
+   344) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   345) ---------------- X=8,Y=8. Bandoma statyti skaiciu 2.
+   346) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   347) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   348) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   349) ---------------- X=8,Y=8. Bandoma statyti skaiciu 1.
+   350) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   351) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   352) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   353) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   354) ------------- X=5,Y=8. Bandoma statyti skaiciu 9.
+   355) -------------- X=6,Y=8. Bandoma statyti skaiciu 1.
+   356) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   357) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   358) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   359) -------------- X=6,Y=8. Bandoma statyti skaiciu 2.
+   360) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   361) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   362) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   363) -------------- X=6,Y=8. Bandoma statyti skaiciu 7.
+   364) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   365) ---------------- X=8,Y=8. Bandoma statyti skaiciu 2.
+   366) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   367) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   368) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   369) ---------------- X=8,Y=8. Bandoma statyti skaiciu 1.
+   370) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   371) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   372) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   373) -------------- X=6,Y=8. Bandoma statyti skaiciu 8.
+   374) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   375) ---------------- X=8,Y=8. Bandoma statyti skaiciu 2.
+   376) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   377) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   378) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   379) ---------------- X=8,Y=8. Bandoma statyti skaiciu 1.
+   380) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   381) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   382) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   383) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   384) ------------- X=5,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   385) ------------ X=4,Y=8. Bandoma statyti skaiciu 7.
+   386) ------------- X=5,Y=8. Bandoma statyti skaiciu 1.
+   387) -------------- X=6,Y=8. Bandoma statyti skaiciu 2.
+   388) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   389) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   390) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   391) -------------- X=6,Y=8. Bandoma statyti skaiciu 3.
+   392) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   393) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   394) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   395) -------------- X=6,Y=8. Bandoma statyti skaiciu 8.
+   396) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   397) ---------------- X=8,Y=8. Bandoma statyti skaiciu 3.
+   398) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   399) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   400) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   401) ---------------- X=8,Y=8. Bandoma statyti skaiciu 2.
+   402) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   403) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   404) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   405) -------------- X=6,Y=8. Bandoma statyti skaiciu 9.
+   406) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   407) ---------------- X=8,Y=8. Bandoma statyti skaiciu 3.
+   408) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   409) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   410) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   411) ---------------- X=8,Y=8. Bandoma statyti skaiciu 2.
+   412) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   413) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   414) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   415) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   416) ------------- X=5,Y=8. Bandoma statyti skaiciu 2.
+   417) -------------- X=6,Y=8. Bandoma statyti skaiciu 1.
+   418) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   419) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   420) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   421) -------------- X=6,Y=8. Bandoma statyti skaiciu 3.
+   422) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   423) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   424) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   425) -------------- X=6,Y=8. Bandoma statyti skaiciu 8.
+   426) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   427) ---------------- X=8,Y=8. Bandoma statyti skaiciu 3.
+   428) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   429) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   430) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   431) ---------------- X=8,Y=8. Bandoma statyti skaiciu 1.
+   432) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   433) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   434) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   435) -------------- X=6,Y=8. Bandoma statyti skaiciu 9.
+   436) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   437) ---------------- X=8,Y=8. Bandoma statyti skaiciu 3.
+   438) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   439) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   440) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   441) ---------------- X=8,Y=8. Bandoma statyti skaiciu 1.
+   442) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   443) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   444) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   445) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   446) ------------- X=5,Y=8. Bandoma statyti skaiciu 3.
+   447) -------------- X=6,Y=8. Bandoma statyti skaiciu 1.
+   448) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   449) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   450) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   451) -------------- X=6,Y=8. Bandoma statyti skaiciu 2.
+   452) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   453) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   454) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   455) -------------- X=6,Y=8. Bandoma statyti skaiciu 8.
+   456) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   457) ---------------- X=8,Y=8. Bandoma statyti skaiciu 2.
+   458) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   459) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   460) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   461) ---------------- X=8,Y=8. Bandoma statyti skaiciu 1.
+   462) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   463) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   464) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   465) -------------- X=6,Y=8. Bandoma statyti skaiciu 9.
+   466) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   467) ---------------- X=8,Y=8. Bandoma statyti skaiciu 2.
+   468) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   469) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   470) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   471) ---------------- X=8,Y=8. Bandoma statyti skaiciu 1.
+   472) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   473) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   474) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   475) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   476) ------------- X=5,Y=8. Bandoma statyti skaiciu 8.
+   477) -------------- X=6,Y=8. Bandoma statyti skaiciu 1.
+   478) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   479) ---------------- X=8,Y=8. Bandoma statyti skaiciu 3.
+   480) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   481) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   482) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   483) ---------------- X=8,Y=8. Bandoma statyti skaiciu 2.
+   484) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   485) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   486) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   487) -------------- X=6,Y=8. Bandoma statyti skaiciu 2.
+   488) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   489) ---------------- X=8,Y=8. Bandoma statyti skaiciu 3.
+   490) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   491) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   492) --------------- X=7,Y=8. Bandoma statyti skaiciu 3.
+   493) ---------------- X=8,Y=8. Bandoma statyti skaiciu 1.
+   494) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   495) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   496) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   497) -------------- X=6,Y=8. Bandoma statyti skaiciu 3.
+   498) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   499) ---------------- X=8,Y=8. Bandoma statyti skaiciu 2.
+   500) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   501) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   502) --------------- X=7,Y=8. Bandoma statyti skaiciu 2.
+   503) ---------------- X=8,Y=8. Bandoma statyti skaiciu 1.
+   504) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   505) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   506) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+   507) -------------- X=6,Y=8. Bandoma statyti skaiciu 9.
+   508) --------------- X=7,Y=8. Bandoma statyti skaiciu 1.
+   509) ---------------- X=8,Y=8. Bandoma statyti skaiciu 2.
+   510) ----------------- X=9,Y=8. Bandoma statyti skaiciu 3. Sprendimas tesiamas zemesneje eiluteje.
+   511) ------------------ X=1,Y=7. Bandoma statyti skaiciu 7.
+   512) ------------------- X=2,Y=7. Bandoma statyti skaiciu 8.
+   513) -------------------- X=3,Y=7. Bandoma statyti skaiciu 9.
+   514) --------------------- X=4,Y=7. Bandoma statyti skaiciu 1.
+   515) ---------------------- X=5,Y=7. Bandoma statyti skaiciu 2.
+   516) ----------------------- X=6,Y=7. Bandoma statyti skaiciu 3.
+   517) ------------------------ X=7,Y=7. Bandoma statyti skaiciu 4.
+   518) ------------------------- X=8,Y=7. Bandoma statyti skaiciu 5.
+   519) -------------------------- X=9,Y=7. Bandoma statyti skaiciu 6. Sprendimas tesiamas zemesneje eiluteje.
+   520) --------------------------- X=1,Y=6. Bandoma statyti skaiciu 2.
+   521) ---------------------------- X=2,Y=6. Bandoma statyti skaiciu 1.
+   522) ----------------------------- X=3,Y=6. Bandoma statyti skaiciu 4.
+   523) ------------------------------ X=4,Y=6. Bandoma statyti skaiciu 3.
+   524) ------------------------------- X=5,Y=6. Bandoma statyti skaiciu 6.
+   525) -------------------------------- X=6,Y=6. Bandoma statyti skaiciu 5.
+   526) --------------------------------- X=7,Y=6. Bandoma statyti skaiciu 8.
+   527) ---------------------------------- X=8,Y=6. Bandoma statyti skaiciu 7.
+   528) ----------------------------------- X=9,Y=6. Nerastas tinkamas skaicius. Backtrack. Fail.
+   529) ---------------------------------- X=8,Y=6. Bandoma statyti skaiciu 9.
+   530) ----------------------------------- X=9,Y=6. Bandoma statyti skaiciu 7. Sprendimas tesiamas zemesneje eiluteje.
+   531) ------------------------------------ X=1,Y=5. Bandoma statyti skaiciu 3.
+   532) ------------------------------------- X=2,Y=5. Bandoma statyti skaiciu 6.
+   533) -------------------------------------- X=3,Y=5. Bandoma statyti skaiciu 5.
+   534) --------------------------------------- X=4,Y=5. Bandoma statyti skaiciu 2.
+   535) ---------------------------------------- X=5,Y=5. Bandoma statyti skaiciu 1.
+   536) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 4.
+   537) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   538) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 7.
+   539) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   540) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 8.
+   541) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   542) ----------------------------------------- X=6,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   543) ---------------------------------------- X=5,Y=5. Bandoma statyti skaiciu 4.
+   544) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 1.
+   545) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   546) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 7.
+   547) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   548) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 8.
+   549) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   550) ----------------------------------------- X=6,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   551) ---------------------------------------- X=5,Y=5. Bandoma statyti skaiciu 7.
+   552) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 1.
+   553) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   554) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 4.
+   555) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   556) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 8.
+   557) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   558) ----------------------------------------- X=6,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   559) ---------------------------------------- X=5,Y=5. Bandoma statyti skaiciu 9.
+   560) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 1.
+   561) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   562) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 4.
+   563) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   564) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 7.
+   565) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   566) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 8.
+   567) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   568) ----------------------------------------- X=6,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   569) ---------------------------------------- X=5,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   570) --------------------------------------- X=4,Y=5. Bandoma statyti skaiciu 8.
+   571) ---------------------------------------- X=5,Y=5. Bandoma statyti skaiciu 1.
+   572) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 2.
+   573) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   574) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 4.
+   575) ------------------------------------------ X=7,Y=5. Bandoma statyti skaiciu 2.
+   576) ------------------------------------------- X=8,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   577) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   578) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 7.
+   579) ------------------------------------------ X=7,Y=5. Bandoma statyti skaiciu 2.
+   580) ------------------------------------------- X=8,Y=5. Bandoma statyti skaiciu 4.
+   581) -------------------------------------------- X=9,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   582) ------------------------------------------- X=8,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   583) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   584) ----------------------------------------- X=6,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   585) ---------------------------------------- X=5,Y=5. Bandoma statyti skaiciu 4.
+   586) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 1.
+   587) ------------------------------------------ X=7,Y=5. Bandoma statyti skaiciu 2.
+   588) ------------------------------------------- X=8,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   589) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   590) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 2.
+   591) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   592) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 7.
+   593) ------------------------------------------ X=7,Y=5. Bandoma statyti skaiciu 2.
+   594) ------------------------------------------- X=8,Y=5. Bandoma statyti skaiciu 1.
+   595) -------------------------------------------- X=9,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   596) ------------------------------------------- X=8,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   597) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   598) ----------------------------------------- X=6,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   599) ---------------------------------------- X=5,Y=5. Bandoma statyti skaiciu 7.
+   600) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 1.
+   601) ------------------------------------------ X=7,Y=5. Bandoma statyti skaiciu 2.
+   602) ------------------------------------------- X=8,Y=5. Bandoma statyti skaiciu 4.
+   603) -------------------------------------------- X=9,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   604) ------------------------------------------- X=8,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   605) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   606) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 2.
+   607) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   608) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 4.
+   609) ------------------------------------------ X=7,Y=5. Bandoma statyti skaiciu 2.
+   610) ------------------------------------------- X=8,Y=5. Bandoma statyti skaiciu 1.
+   611) -------------------------------------------- X=9,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   612) ------------------------------------------- X=8,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   613) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   614) ----------------------------------------- X=6,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   615) ---------------------------------------- X=5,Y=5. Bandoma statyti skaiciu 9.
+   616) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 1.
+   617) ------------------------------------------ X=7,Y=5. Bandoma statyti skaiciu 2.
+   618) ------------------------------------------- X=8,Y=5. Bandoma statyti skaiciu 4.
+   619) -------------------------------------------- X=9,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   620) ------------------------------------------- X=8,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   621) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   622) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 2.
+   623) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   624) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 4.
+   625) ------------------------------------------ X=7,Y=5. Bandoma statyti skaiciu 2.
+   626) ------------------------------------------- X=8,Y=5. Bandoma statyti skaiciu 1.
+   627) -------------------------------------------- X=9,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   628) ------------------------------------------- X=8,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   629) ------------------------------------------ X=7,Y=5. Nerastas tinkamas skaicius. Backtrack. Fail.
+   630) ----------------------------------------- X=6,Y=5. Bandoma statyti skaiciu 7.
+   631) ------------------------------------------ X=7,Y=5. Bandoma statyti skaiciu 2.
+   632) ------------------------------------------- X=8,Y=5. Bandoma statyti skaiciu 1.
+   633) -------------------------------------------- X=9,Y=5. Bandoma statyti skaiciu 4. Sprendimas tesiamas zemesneje eiluteje.
+   634) --------------------------------------------- X=1,Y=4. Bandoma statyti skaiciu 8.
+   635) ---------------------------------------------- X=2,Y=4. Bandoma statyti skaiciu 7.
+   636) ----------------------------------------------- X=3,Y=4. Nerastas tinkamas skaicius. Backtrack. Fail.
+   637) ---------------------------------------------- X=2,Y=4. Bandoma statyti skaiciu 9.
+   638) ----------------------------------------------- X=3,Y=4. Bandoma statyti skaiciu 7.
+   639) ------------------------------------------------ X=4,Y=4. Bandoma statyti skaiciu 2.
+   640) ------------------------------------------------- X=5,Y=4. Bandoma statyti skaiciu 1.
+   641) -------------------------------------------------- X=6,Y=4. Bandoma statyti skaiciu 4.
+   642) --------------------------------------------------- X=7,Y=4. Bandoma statyti skaiciu 3.
+   643) ---------------------------------------------------- X=8,Y=4. Bandoma statyti skaiciu 6.
+   644) ----------------------------------------------------- X=9,Y=4. Bandoma statyti skaiciu 5. Sprendimas tesiamas zemesneje eiluteje.
+   645) ------------------------------------------------------ X=1,Y=3. Bandoma statyti skaiciu 5.
+   646) ------------------------------------------------------- X=2,Y=3. Bandoma statyti skaiciu 3.
+   647) -------------------------------------------------------- X=3,Y=3. Bandoma statyti skaiciu 1.
+   648) --------------------------------------------------------- X=4,Y=3. Bandoma statyti skaiciu 6.
+   649) ---------------------------------------------------------- X=5,Y=3. Bandoma statyti skaiciu 4.
+   650) ----------------------------------------------------------- X=6,Y=3. Bandoma statyti skaiciu 2.
+   651) ------------------------------------------------------------ X=7,Y=3. Bandoma statyti skaiciu 9.
+   652) ------------------------------------------------------------- X=8,Y=3. Bandoma statyti skaiciu 7.
+   653) -------------------------------------------------------------- X=9,Y=3. Bandoma statyti skaiciu 8. Sprendimas tesiamas zemesneje eiluteje.
+   654) --------------------------------------------------------------- X=1,Y=2. Bandoma statyti skaiciu 6.
+   655) ---------------------------------------------------------------- X=2,Y=2. Bandoma statyti skaiciu 4.
+   656) ----------------------------------------------------------------- X=3,Y=2. Bandoma statyti skaiciu 2.
+   657) ------------------------------------------------------------------ X=4,Y=2. Bandoma statyti skaiciu 5.
+   658) ------------------------------------------------------------------- X=5,Y=2. Bandoma statyti skaiciu 3.
+   659) -------------------------------------------------------------------- X=6,Y=2. Bandoma statyti skaiciu 1.
+   660) --------------------------------------------------------------------- X=7,Y=2. Nerastas tinkamas skaicius. Backtrack. Fail.
+   661) -------------------------------------------------------------------- X=6,Y=2. Bandoma statyti skaiciu 8.
+   662) --------------------------------------------------------------------- X=7,Y=2. Nerastas tinkamas skaicius. Backtrack. Fail.
+   663) -------------------------------------------------------------------- X=6,Y=2. Nerastas tinkamas skaicius. Backtrack. Fail.
+   664) ------------------------------------------------------------------- X=5,Y=2. Bandoma statyti skaiciu 7.
+   665) -------------------------------------------------------------------- X=6,Y=2. Bandoma statyti skaiciu 1.
+   666) --------------------------------------------------------------------- X=7,Y=2. Nerastas tinkamas skaicius. Backtrack. Fail.
+   667) -------------------------------------------------------------------- X=6,Y=2. Bandoma statyti skaiciu 8.
+   668) --------------------------------------------------------------------- X=7,Y=2. Nerastas tinkamas skaicius. Backtrack. Fail.
+   669) -------------------------------------------------------------------- X=6,Y=2. Nerastas tinkamas skaicius. Backtrack. Fail.
+   670) ------------------------------------------------------------------- X=5,Y=2. Nerastas tinkamas skaicius. Backtrack. Fail.
+   671) ------------------------------------------------------------------ X=4,Y=2. Bandoma statyti skaiciu 9.
+   672) ------------------------------------------------------------------- X=5,Y=2. Bandoma statyti skaiciu 3.
+   673) -------------------------------------------------------------------- X=6,Y=2. Bandoma statyti skaiciu 1.
+   674) --------------------------------------------------------------------- X=7,Y=2. Bandoma statyti skaiciu 5.
+   675) ---------------------------------------------------------------------- X=8,Y=2. Nerastas tinkamas skaicius. Backtrack. Fail.
+   676) --------------------------------------------------------------------- X=7,Y=2. Nerastas tinkamas skaicius. Backtrack. Fail.
+   677) -------------------------------------------------------------------- X=6,Y=2. Bandoma statyti skaiciu 8.
+   678) --------------------------------------------------------------------- X=7,Y=2. Bandoma statyti skaiciu 5.
+   679) ---------------------------------------------------------------------- X=8,Y=2. Nerastas tinkamas skaicius. Backtrack. Fail.
+   680) --------------------------------------------------------------------- X=7,Y=2. Nerastas tinkamas skaicius. Backtrack. Fail.
+   681) -------------------------------------------------------------------- X=6,Y=2. Nerastas tinkamas skaicius. Backtrack. Fail.
+   682) ------------------------------------------------------------------- X=5,Y=2. Bandoma statyti skaiciu 7.
+   683) -------------------------------------------------------------------- X=6,Y=2. Bandoma statyti skaiciu 1.
+   684) --------------------------------------------------------------------- X=7,Y=2. Bandoma statyti skaiciu 5.
+   685) ---------------------------------------------------------------------- X=8,Y=2. Bandoma statyti skaiciu 3.
+   686) ----------------------------------------------------------------------- X=9,Y=2. Nerastas tinkamas skaicius. Backtrack. Fail.
+   687) ---------------------------------------------------------------------- X=8,Y=2. Nerastas tinkamas skaicius. Backtrack. Fail.
+   688) --------------------------------------------------------------------- X=7,Y=2. Nerastas tinkamas skaicius. Backtrack. Fail.
+   689) -------------------------------------------------------------------- X=6,Y=2. Bandoma statyti skaiciu 8.
+   690) --------------------------------------------------------------------- X=7,Y=2. Bandoma statyti skaiciu 5.
+   691) ---------------------------------------------------------------------- X=8,Y=2. Bandoma statyti skaiciu 3.
+   692) ----------------------------------------------------------------------- X=9,Y=2. Bandoma statyti skaiciu 1. Sprendimas tesiamas zemesneje eiluteje.
+   693) ------------------------------------------------------------------------ X=1,Y=1. Bandoma statyti skaiciu 9.
+   694) ------------------------------------------------------------------------- X=2,Y=1. Bandoma statyti skaiciu 7.
+   695) -------------------------------------------------------------------------- X=3,Y=1. Bandoma statyti skaiciu 8.
+   696) --------------------------------------------------------------------------- X=4,Y=1. Bandoma statyti skaiciu 5.
+   697) ---------------------------------------------------------------------------- X=5,Y=1. Bandoma statyti skaiciu 3.
+   698) ----------------------------------------------------------------------------- X=6,Y=1. Bandoma statyti skaiciu 1.
+   699) ------------------------------------------------------------------------------ X=7,Y=1. Bandoma statyti skaiciu 6.
+   700) ------------------------------------------------------------------------------- X=8,Y=1. Bandoma statyti skaiciu 4.
+   701) -------------------------------------------------------------------------------- X=9,Y=1. Bandoma statyti skaiciu 2.
+   702) Sudoku sprendinys rastas.
+
+DALIS 3. Rezultatai.
+  3.1. Sprendinys atrastas zingsnyje 702.
+  3.2. Issprestas sudoku:
+
+  Y ^
+    | -------------------------------
+   9| | 1  2  3 | 4  5  6 | 7  8  9 |
+   8| | 4  5  6 | 7  8  9 | 1  2  3 |
+   7| | 7  8  9 | 1  2  3 | 4  5  6 |
+    | -------------------------------
+   6| | 2  1  4 | 3  6  5 | 8  9  7 |
+   5| | 3  6  5 | 8  9  7 | 2  1  4 |
+   4| | 8  9  7 | 2  1  4 | 3  6  5 |
+    | -------------------------------
+   3| | 5  3  1 | 6  4  2 | 9  7  8 |
+   2| | 6  4  2 | 9  7  8 | 5  3  1 |
+   1| | 9  7  8 | 5  3  1 | 6  4  2 |
+    | -------------------------------
+    0--------------------------------->
+        1  2  3   4  5  6   7  8  9   X

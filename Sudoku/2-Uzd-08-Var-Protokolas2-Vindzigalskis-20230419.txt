@@ -1,0 +1,80 @@
+2 uzduotis, 8 variantas. 3 grupe, 2 pogrupis. Hubertas Vindzigalskis.
+
+Salyga: 8. Parasyti programa, sprendziancia Sudoku. Randamas pirmasis sprendinys.
+Algoritmas pradeda nuo langelio X=1 Y=9 ir keliauja iki X=9.
+Tuomet sprendimas tesiamas zemesneje eiluteje Y=8 ir taip
+keliaujame kol pasiekiame Y=1 eilutes pabaiga, kuomet atrandamas sprendinys.
+
+Algoritmas:
+  1) Is eiles tikrinamas kiekvienas langelis, ar jis nera uzimtas.
+  2) Jei langelis uzimtas ir yra paskutinis eiluteje, tai einame i zemesne
+     eilute. Jei nera paskutinis eiluteje, tai einame i sekanti langeli eiluteje.
+  3) Jei langelis tuscias, tai sukame cikla nuo 1 iki 9 ir bandome istatyti
+     kiekviena skaiciu tikrindami jo validuma sudoku sprendime su funkcija isValid().
+  4) Istacius skaiciu i langeli tikriname, ar langelis buvo paskutinis
+     eiluteje, jei taip, keliaujame i zemesne eilute, jei ne, keliaujama
+     i sekanti langeli eiluteje.
+  5) Kartojame visus siuos veiksmus, kol pasiekiame zemiausios eilutes (Y=1) pabaiga.
+
+DALIS 1. Duomenys.
+  1.1. Pradiniai duomenys:
+
+  Y ^
+    | -------------------------------
+   9| | 7  8  1 | 5  4  3 | 9  2  6 |
+   8| | 0  0  6 | 1  7  9 | 5  0  0 |
+   7| | 9  5  4 | 6  2  8 | 7  3  1 |
+    | -------------------------------
+   6| | 6  9  5 | 8  3  7 | 2  1  4 |
+   5| | 1  4  8 | 2  6  5 | 3  7  9 |
+   4| | 3  2  7 | 9  1  4 | 8  0  0 |
+    | -------------------------------
+   3| | 4  1  3 | 7  5  2 | 6  9  8 |
+   2| | 0  0  2 | 0  0  0 | 4  0  0 |
+   1| | 5  7  9 | 4  8  6 | 1  0  3 |
+    | -------------------------------
+    0--------------------------------->
+        1  2  3   4  5  6   7  8  9   X
+
+DALIS 2. Vykdymas
+     1)  X=1,Y=9. Langelis yra uzimtas skaiciumi 7.
+     2) - X=2,Y=9. Langelis yra uzimtas skaiciumi 8.
+     3) -- X=3,Y=9. Langelis yra uzimtas skaiciumi 1.
+     4) --- X=4,Y=9. Langelis yra uzimtas skaiciumi 5.
+     5) ---- X=5,Y=9. Langelis yra uzimtas skaiciumi 4.
+     6) ----- X=6,Y=9. Langelis yra uzimtas skaiciumi 3.
+     7) ------ X=7,Y=9. Langelis yra uzimtas skaiciumi 9.
+     8) ------- X=8,Y=9. Langelis yra uzimtas skaiciumi 2.
+     9) -------- X=9,Y=9. Langelis yra uzimtas skaiciumi 6. Sprendimas tesiamas zemesneje eiluteje.
+    10) --------- X=1,Y=8. Bandoma statyti skaiciu 2.
+    11) ---------- X=2,Y=8. Bandoma statyti skaiciu 3.
+    12) ----------- X=3,Y=8. Langelis yra uzimtas skaiciumi 6.
+    13) ------------ X=4,Y=8. Langelis yra uzimtas skaiciumi 1.
+    14) ------------- X=5,Y=8. Langelis yra uzimtas skaiciumi 7.
+    15) -------------- X=6,Y=8. Langelis yra uzimtas skaiciumi 9.
+    16) --------------- X=7,Y=8. Langelis yra uzimtas skaiciumi 5.
+    17) ---------------- X=8,Y=8. Bandoma statyti skaiciu 4.
+    18) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    19) ---------------- X=8,Y=8. Bandoma statyti skaiciu 8.
+    20) ----------------- X=9,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    21) ---------------- X=8,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    22) --------------- X=7,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    23) -------------- X=6,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    24) ------------- X=5,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    25) ------------ X=4,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    26) ----------- X=3,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    27) ---------- X=2,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    28) --------- X=1,Y=8. Nerastas tinkamas skaicius. Backtrack. Fail.
+    29) -------- X=1,Y=9. Nerastas tinkamas skaicius. Backtrack. Fail.
+    30) ------- X=8,Y=9. Nerastas tinkamas skaicius. Backtrack. Fail.
+    31) ------ X=7,Y=9. Nerastas tinkamas skaicius. Backtrack. Fail.
+    32) ----- X=6,Y=9. Nerastas tinkamas skaicius. Backtrack. Fail.
+    33) ---- X=5,Y=9. Nerastas tinkamas skaicius. Backtrack. Fail.
+    34) --- X=4,Y=9. Nerastas tinkamas skaicius. Backtrack. Fail.
+    35) -- X=3,Y=9. Nerastas tinkamas skaicius. Backtrack. Fail.
+    36) - X=2,Y=9. Nerastas tinkamas skaicius. Backtrack. Fail.
+    37)  X=1,Y=9. Nerastas tinkamas skaicius. Backtrack. Fail.
+    38) Sudoku sprendinys nerastas.
+
+DALIS 3. Rezultatai.
+  3.1. Sudoku sprendimo neturi.
